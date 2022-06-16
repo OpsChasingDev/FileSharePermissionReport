@@ -16,7 +16,7 @@ function ShareInfoBasic {
     ShareName LocalPath
     --------- ---------
     Root      C:\Root
-#>
+    #>
     [OutputType('FSPR.ObjShareInfoBasic')]
     [CmdletBinding()]
 
