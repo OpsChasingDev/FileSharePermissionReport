@@ -1,5 +1,5 @@
 function ShareInfoBasic {
-    [OutputType('ObjShareInfoBasic')]
+    [OutputType('FSPR.ObjShareInfoBasic')]
     [CmdletBinding()]
 
     $Share = Get-SmbShare | Where-Object {$_.Name -notlike '*$'}
@@ -7,7 +7,7 @@ function ShareInfoBasic {
 
     foreach ($s in $Share) {
         $ObjShareInfoBasic = [PSCustomObject]@{
-            PSTypeName = "ObjShareInfoBasic"
+            PSTypeName = "FSPR.ObjShareInfoBasic"
             ShareName = $s.Name
             LocalPath = $s.Path
         }
