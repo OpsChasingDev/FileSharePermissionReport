@@ -13,9 +13,22 @@ function ShareInfoBasic {
 .EXAMPLE
     PS C:\> ShareInfoBasic      
 
-    ShareName LocalPath
-    --------- ---------
-    Root      C:\Root
+ShareName LocalPath
+--------- ---------
+Root      C:\Root
+.EXAMPLE
+    PS C:\> ShareInfoBasic | gm
+
+   TypeName: FSPR.ObjShareInfoBasic
+
+Name        MemberType   Definition
+----        ----------   ----------
+Equals      Method       bool Equals(System.Object obj)
+GetHashCode Method       int GetHashCode()
+GetType     Method       type GetType()
+ToString    Method       string ToString()
+LocalPath   NoteProperty string LocalPath=C:\Root
+ShareName   NoteProperty string ShareName=Root
     #>
     [OutputType('FSPR.ObjShareInfoBasic')]
     [CmdletBinding()]
