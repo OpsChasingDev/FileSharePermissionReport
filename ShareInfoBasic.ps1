@@ -6,4 +6,5 @@ foreach ($s in $Share) {
         ShareName = $s.Name
         LocalPath = $s.Path
     }
+    $ColShareInfoBasic += $ObjShareInfoBasic
 }
