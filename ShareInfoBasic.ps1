@@ -1,13 +1,18 @@
-$Share = Get-SmbShare | Where-Object {$_.Name -notlike '*$'}
-$ColShareInfoBasic = @()
+function ShareInfoBasic {
+    [OutputType('ObjShareInfoBasic')]
+    [CmdletBinding()]
 
-foreach ($s in $Share) {
-    $ObjShareInfoBasic = [PSCustomObject]@{
-        PSTypeName = "ObjShareInfoBasic"
-        ShareName = $s.Name
-        LocalPath = $s.Path
+    $Share = Get-SmbShare | Where-Object {$_.Name -notlike '*$'}
+    $ColShareInfoBasic = @()
+
+    foreach ($s in $Share) {
+        $ObjShareInfoBasic = [PSCustomObject]@{
+            PSTypeName = "ObjShareInfoBasic"
+            ShareName = $s.Name
+            LocalPath = $s.Path
+        }
+        $ColShareInfoBasic += $ObjShareInfoBasic
     }
-    $ColShareInfoBasic += $ObjShareInfoBasic
-}
 
-Write-Output $ColShareInfoBasic
+    Write-Output $ColShareInfoBasic
+}
