@@ -4,16 +4,16 @@ function ShareInfoBasic {
     Retrieves basic information about non-system SMB Shares on a system.
 .DESCRIPTION
     Retrieves basic information about non-system SMB Shares on a system.
-    
+
     The purpose of this function is for use in the FileSharePermissionReport whereby the first step in the process is to identify every non-system SMB share and return only the share name and local path.
 .LINK
     https://github.com/OpsChasingDev/FileSharePermissionReport
 .EXAMPLE
     PS C:\> ShareInfoBasic      
 
-ShareName LocalPath
---------- ---------
-Root      C:\Root
+    ShareName LocalPath
+    --------- ---------
+    Root      C:\Root
 #>
     [OutputType('FSPR.ObjShareInfoBasic')]
     [CmdletBinding()]
