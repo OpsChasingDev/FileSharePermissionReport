@@ -7,8 +7,11 @@
 .LINK
     https://github.com/OpsChasingDev/FileSharePermissionReport
 .EXAMPLE
-    Test-MyTestFunction -Verbose
-    Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
+    PS C:\> ShareInfoBasic      
+
+ShareName LocalPath
+--------- ---------
+Root      C:\Root
 #>
 
 {0}
