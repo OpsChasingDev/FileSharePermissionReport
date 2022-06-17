@@ -1,4 +1,5 @@
 function FSPR_SMBInfoACL {
+    [OutputType('FSPR.ObjSMBInfoACL')]
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline)]
