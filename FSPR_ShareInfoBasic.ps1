@@ -1,4 +1,4 @@
-function ShareInfoBasic {
+function FSPR_ShareInfoBasic {
     <#
 .SYNOPSIS
     Retrieves basic information about non-system SMB Shares on a system.
