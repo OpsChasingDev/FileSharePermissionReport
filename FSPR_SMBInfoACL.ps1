@@ -2,7 +2,8 @@ function FSPR_SMBInfoACL {
     [CmdletBinding()]
     param (
         [Parameter(ValueFromPipeline)]
-        [FSPR.ObjShareInfoBasic[]]$ShareInfo
+        [ValidateScript({$_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic'})]
+        $ShareInfo
     )
-    Get-SmbShareAccess
+    Write-Output $ShareInfo
 }
