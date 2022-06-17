@@ -1,7 +1,7 @@
 function FSPR_SMBInfoACL {
     [CmdletBinding()]
     param (
-        [FSPR.ObjShareInfoBasic[]]$ShareInfo
+        [FSPR_ObjShareInfoBasic[]]$ShareInfo
     )
-    
+    Get-SmbShareAccess
 }
