@@ -11,13 +11,13 @@ function FSPR_ShareInfoBasic {
 .OUTPUTS
     FSPR.ObjShareInfoBasic
 .EXAMPLE
-    PS C:\> ShareInfoBasic      
+    PS C:\> FSPR_ShareInfoBasic      
 
 ShareName LocalPath
 --------- ---------
 Root      C:\Root
 .EXAMPLE
-    PS C:\> ShareInfoBasic | gm
+    PS C:\> FSPR_ShareInfoBasic | gm
 
    TypeName: FSPR.ObjShareInfoBasic
 
