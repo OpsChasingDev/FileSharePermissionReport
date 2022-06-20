@@ -4,7 +4,7 @@ function FSPR_SMBInfoACL {
     param (
         [Parameter(ValueFromPipeline)]
         [ValidateScript({$_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic'})]
-        [System.Object[]]$ShareInfo
+        [System.Object]$ShareInfo
     )
     BEGIN {}
     PROCESS {
