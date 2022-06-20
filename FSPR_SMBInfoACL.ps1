@@ -8,9 +8,12 @@ function FSPR_SMBInfoACL {
         The purpose of this fucntion is for use in the FilesharePermissionReport whereby the input used for this function is the output generated from the FSPR_ShareInfoBasic function.
     .LINK
         https://github.com/OpsChasingDev/FileSharePermissionReport
+    .OUTPUTS
+        FSPR.ObjSMBInfoACL
     .EXAMPLE
-        Test-MyTestFunction -Verbose
-        Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
+        PS C:\> FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+        
+        Takes the output FSPR_ShareInfoBasic and feeds this as input to FSPR_SMBInfoACL.  The output generated is a unique object containing information about each SMB permission for each non-system share found.
     #>
     [OutputType('FSPR.ObjSMBInfoACL')]
     [CmdletBinding()]
