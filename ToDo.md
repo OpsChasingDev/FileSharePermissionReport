@@ -1,1 +1,1 @@
-- create the custom object at the end of the FSPR_SMBInfoACL.ps1
+- build out function FSPR_NTFSInfoACL
