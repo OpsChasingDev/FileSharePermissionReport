@@ -12,8 +12,8 @@ function FSPR_SMBInfoACL {
         foreach ($acl in $SMBACL) {
             $obj = [PSCustomObject]@{
                 PSTypeName = "FSPR.ObjSMBInfoACL"
-                ShareName = $this.Sharename
-                ShareLocalPath = $this.LocalPath
+                ShareName = $ShareInfo.Sharename
+                ShareLocalPath = $ShareInfo.LocalPath
                 AccountName = $acl.AccountName
                 AccessControlType = $acl.AccessControlType
                 AccessRight = $acl.AccessRight
