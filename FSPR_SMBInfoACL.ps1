@@ -1,19 +1,17 @@
 function FSPR_SMBInfoACL {
     <#
     .SYNOPSIS
-        A short one-line action-based description, e.g. 'Tests if a function is valid'
+        Gets share permissions information about non-system SMB Shares on a system.
     .DESCRIPTION
-        A longer description of the function, its purpose, common use cases, etc.
-    .NOTES
-        Information or caveats about the function e.g. 'This function is not supported in Linux'
+        Gets share permissions information about non-system SMB Shares on a system.
+
+        The purpose of this fucntion is for use in the FilesharePermissionReport whereby the input used for this function is the output generated from the FSPR_ShareInfoBasic function.
     .LINK
-        Specify a URI to a help page, this will show when Get-Help -Online is used.
+        https://github.com/OpsChasingDev/FileSharePermissionReport
     .EXAMPLE
         Test-MyTestFunction -Verbose
         Explanation of the function or its result. You can include multiple examples with additional .EXAMPLE lines
     #>
-    
-    {0}
     [OutputType('FSPR.ObjSMBInfoACL')]
     [CmdletBinding()]
     param (
