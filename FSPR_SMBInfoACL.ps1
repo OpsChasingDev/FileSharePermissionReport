@@ -10,6 +10,14 @@ function FSPR_SMBInfoACL {
     PROCESS {
         $SMBACL = Get-SmbShareAccess -Name $ShareInfo.ShareName
         foreach ($acl in $SMBACL) {
+            $obj = [PSCustomObject]@{
+                PSTypeName = "FSPR.ObjSMBInfoACL"
+                ShareName = 
+                ShareLocalPath = 
+                AccountName = 
+                AccessControlType = 
+                AccessRight = 
+            }
             Write-Output $acl
         }
     }
