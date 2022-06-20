@@ -7,4 +7,7 @@ function FSPR_SMBInfoACL {
         [System.Object[]]$ShareInfo
     )
     $SMBACL = Get-SmbShareAccess -Name $ShareInfo.ShareName
+    foreach ($acl in $SMBACL) {
+        Write-Output $acl
+    }
 }
