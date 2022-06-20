@@ -6,8 +6,12 @@ function FSPR_SMBInfoACL {
         [ValidateScript({$_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic'})]
         [System.Object[]]$ShareInfo
     )
-    $SMBACL = Get-SmbShareAccess -Name $ShareInfo.ShareName
-    foreach ($acl in $SMBACL) {
-        Write-Output $acl
+    BEGIN {}
+    PROCESS {
+        $SMBACL = Get-SmbShareAccess -Name $ShareInfo.ShareName
+        foreach ($acl in $SMBACL) {
+            Write-Output $acl
+        }
     }
+    END {}
 }
