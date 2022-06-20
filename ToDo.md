@@ -1,1 +1,1 @@
-- finish logic in FSPR_SMBInfoACL.ps1
+- create the custom object at the end of the FSPR_SMBInfoACL.ps1
