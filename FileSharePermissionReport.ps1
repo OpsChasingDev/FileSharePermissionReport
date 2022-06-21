@@ -2,4 +2,5 @@
 .\FSPR_SMBInfoACL.ps1
 .\FSPR_NTFSInfoACL.ps1
 
-FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+$SMBInfoACL = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+$NTFSInfoACL = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
