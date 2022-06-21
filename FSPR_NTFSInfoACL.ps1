@@ -8,6 +8,8 @@ function FSPR_NTFSInfoACL {
         The purpose of this fucntion is for use in the FilesharePermissionReport whereby the input used for this function is the output generated from the FSPR_ShareInfoBasic function.
     .LINK
         https://github.com/OpsChasingDev/FileSharePermissionReport
+    .OUTPUTS
+        FSPR.ObjSMBInfoACL
     .EXAMPLE
         PS C:\> FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
 
