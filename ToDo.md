@@ -1,1 +1,1 @@
-- build out function FSPR_NTFSInfoACL
+- build out constructor script
