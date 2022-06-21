@@ -20,6 +20,7 @@ function FSPR_NTFSInfoACL {
                 AccessControlType = $acl.AccessControlType
                 AccessRight       = $acl.FileSystemRights
             }
+            Write-Output $obj
         }
     }
 
