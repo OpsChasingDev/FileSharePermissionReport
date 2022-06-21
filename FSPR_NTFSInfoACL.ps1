@@ -7,4 +7,12 @@ function FSPR_NTFSInfoACL {
             [ValidateScript({ $_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic' })]
             [System.Object]$NTFSInfo
     )
+
+    BEGIN {}
+
+    PROCESS {
+        
+    }
+
+    END {}
 }
