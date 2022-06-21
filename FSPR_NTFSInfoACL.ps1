@@ -11,7 +11,14 @@ function FSPR_NTFSInfoACL {
     BEGIN {}
 
     PROCESS {
-        
+        $NTFSACL = Get-ACL -Path $NTFSInfo.LocalPath
+        foreach ($acl in $NTFSACL) {
+            $obj = [PSCustomObject]@{
+                PSTypeName = "FSPR.ObjNTFSInfoACL"
+                ShareLocalPath = $NTFSInfo.LocalPath
+                ACL = $acl.
+            }
+        }
     }
 
     END {}
