@@ -1,3 +1,4 @@
+# constructor script intended to be invoked to other machines for processing their share data permissions
 function FSPR_ShareInfoBasic {
     <#
     .SYNOPSIS
