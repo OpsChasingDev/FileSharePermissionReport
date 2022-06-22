@@ -1,1 +1,1 @@
-- build out constructor script
+- nail down the invokation to other machines
