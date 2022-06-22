@@ -140,5 +140,5 @@ function FSPR_NTFSInfoACL {
     END {}
 }
 
-$SMBJob = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
-$NTFSJob = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
+$SMBInfo = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+$NTFSInfo = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
