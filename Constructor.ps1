@@ -1,4 +1,9 @@
 # constructor script intended to be invoked to other machines for processing their share data permissions
+
+# copy all script files to the remote machine
+# execute script logic on remote machine
+# get data returned for use
+# clean up and remove script files on remote machines
 function FSPR_ShareInfoBasic {
     <#
     .SYNOPSIS
