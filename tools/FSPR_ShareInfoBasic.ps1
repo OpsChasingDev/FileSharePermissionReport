@@ -33,7 +33,7 @@ function FSPR_ShareInfoBasic {
     [OutputType('FSPR.ObjShareInfoBasic')]
     [CmdletBinding()]
 
-    $Share = Get-SmbShare | Where-Object { $_.Name -notlike '*$' }
+    $Share = Get-SmbShare | Where-Object { $_.Name -notlike '*$' -and $_.Volume -like '\\*' }
     $ColShareInfoBasic = @()
 
     foreach ($s in $Share) {
