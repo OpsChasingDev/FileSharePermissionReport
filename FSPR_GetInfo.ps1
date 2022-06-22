@@ -142,3 +142,6 @@ function FSPR_NTFSInfoACL {
 
 $SMBInfo = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
 $NTFSInfo = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
+
+Write-Output $SMBInfo
+Write-Output $NTFSInfo
