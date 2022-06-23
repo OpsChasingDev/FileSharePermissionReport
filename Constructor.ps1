@@ -1,4 +1,3 @@
-
 # open new session to remote machine
 $Session = New-PSSession -ComputerName 'SL-FP-01'
 
