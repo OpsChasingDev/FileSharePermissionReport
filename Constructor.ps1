@@ -6,16 +6,11 @@
 # clean up and remove script files on remote machines
 
 $Session = New-PSSession -ComputerName 'SL-FP-01'
+Invoke-Command -Session $Session {New-Item -ItemType Directory -Path 'C:\Program Files\WindowsPowerShell\Modules\FSPR\'}
 $CopySplat = @{
-    Path        = 'C:\git\FileSharePermissionReport\tools\'
-    Destination = 'C:\Program Files\WindowsPowerShell\Modules\FSPR\'
+    Path        = 'C:\git\FileSharePermissionReport\FSPR.psm1'
+    Destination = 'C:\Program Files\WindowsPowerShell\Modules\FSPR\FSPR.psm1'
     Force       = $true
-    Recurse     = $true
     ToSession   = $Session
 }
 Copy-Item @CopySplat
-$SMBInfo = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
-$NTFSInfo = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
-
-Write-Output $SMBInfo
-Write-Output $NTFSInfo
