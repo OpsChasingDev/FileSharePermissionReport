@@ -4,7 +4,7 @@ $Session = New-PSSession -ComputerName 'SL-FP-01'
 
 # copy module file to remote machine
 Invoke-Command -Session $Session {
-    New-Item -ItemType Directory -Path 'C:\Program Files\WindowsPowerShell\Modules\FSPR\'
+    New-Item -ItemType Directory -Path 'C:\Program Files\WindowsPowerShell\Modules\FSPR\' -ErrorAction SilentlyContinue
 }
 $CopySplat = @{
     Path        = 'C:\git\FileSharePermissionReport\FSPR.psm1'
