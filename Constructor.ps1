@@ -10,6 +10,7 @@ $CopySplat = @{
     Path        = 'C:\git\FileSharePermissionReport\tools\'
     Destination = 'C:\Program Files\WindowsPowerShell\Modules\FSPR\'
     Force       = $true
+    Recurse     = $true
     ToSession   = $Session
 }
 Copy-Item @CopySplat
