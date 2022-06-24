@@ -3,7 +3,7 @@ param (
         Mandatory)]
     [string]$ComputerName,
 
-    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
     [string]$ModulePath = 'C:\git\FileSharePermissionReport\FSPR.psm1',
 
     [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules'
