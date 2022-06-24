@@ -4,7 +4,7 @@ param (
     [string]$ComputerName,
 
     [Parameter(Mandatory)]
-    [string]$ModulePath,
+    [string]$ModulePath = 'C:\git\FileSharePermissionReport\FSPR.psm1',
 
     [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules'
     
@@ -18,7 +18,7 @@ Invoke-Command -Session $Session {
     New-Item -ItemType Directory -Path "$using:ModuleDestination\FSPR" -ErrorAction SilentlyContinue > $null
 }
 $CopySplat = @{
-    Path        = 'C:\git\FileSharePermissionReport\FSPR.psm1'
+    Path        = $ModulePath
     Destination = "$ModuleDestination\FSPR\FSPR.psm1"
     Force       = $true
     ToSession   = $Session
