@@ -2,8 +2,11 @@ param (
     [Parameter(ValueFromPipelineByPropertyName,
         Mandatory)]
     [string]$ComputerName,
-    
-    [string]$ModulePath = 'C:\Program Files\WindowsPowerShell\Modules'
+
+    [Parameter(Mandatory)]
+    [string]$Path,
+
+    [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules'
     
 )
 
@@ -12,11 +15,11 @@ $Session = New-PSSession -ComputerName $ComputerName
 
 # copy module file to remote machine
 Invoke-Command -Session $Session {
-    New-Item -ItemType Directory -Path "$using:ModulePath\FSPR" -ErrorAction SilentlyContinue > $null
+    New-Item -ItemType Directory -Path "$using:ModuleDestination\FSPR" -ErrorAction SilentlyContinue > $null
 }
 $CopySplat = @{
     Path        = 'C:\git\FileSharePermissionReport\FSPR.psm1'
-    Destination = "$ModulePath\FSPR\FSPR.psm1"
+    Destination = "$ModuleDestination\FSPR\FSPR.psm1"
     Force       = $true
     ToSession   = $Session
 }
@@ -30,7 +33,7 @@ Invoke-Command -Session $Session {
 
 # clean up and remove script files on remote machines
 Invoke-Command -Session $Session {
-    Remove-Item -Path "$using:ModulePath\FSPR" -Recurse -Force
+    Remove-Item -Path "$using:ModuleDestination\FSPR" -Recurse -Force
 }
 
 # close session
