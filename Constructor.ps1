@@ -1,12 +1,14 @@
 param (
-    [string]$ModulePath = 'C:\Program Files\WindowsPowerShell\Modules',
+    [Parameter(ValueFromPipelineByPropertyName,
+        Mandatory)]
+    [string]$ComputerName,
     
-    [Parameter(Mandatory)]
-    [string[]]$ComputerName
+    [string]$ModulePath = 'C:\Program Files\WindowsPowerShell\Modules'
+    
 )
 
 # open new session to remote machine
-$Session = New-PSSession -ComputerName 'SL-FP-01'
+$Session = New-PSSession -ComputerName $ComputerName
 
 # copy module file to remote machine
 Invoke-Command -Session $Session {
