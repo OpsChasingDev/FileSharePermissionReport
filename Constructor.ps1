@@ -4,7 +4,7 @@ param (
     [string]$ComputerName,
 
     [Parameter(Mandatory)]
-    [string]$Path,
+    [string]$ModulePath,
 
     [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules'
     
