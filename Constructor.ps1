@@ -6,8 +6,9 @@ param (
     [ValidateNotNullOrEmpty()]
     [string]$ModulePath = 'C:\git\FileSharePermissionReport\FSPR.psm1',
 
-    [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules'
-    
+    [string]$ModuleDestination = 'C:\Program Files\WindowsPowerShell\Modules',
+
+    [switch]$PersistModule
 )
 
 # open new session to remote machine
@@ -32,8 +33,10 @@ Invoke-Command -Session $Session {
 }
 
 # clean up and remove script files on remote machines
-Invoke-Command -Session $Session {
-    Remove-Item -Path "$using:ModuleDestination\FSPR" -Recurse -Force
+if (!$PersistModule) {
+    Invoke-Command -Session $Session {
+        Remove-Item -Path "$using:ModuleDestination\FSPR" -Recurse -Force
+    }
 }
 
 # close session
