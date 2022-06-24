@@ -1,5 +1,8 @@
 param (
-    [string]$ModulePath = 'C:\Program Files\WindowsPowerShell\Modules'
+    [string]$ModulePath = 'C:\Program Files\WindowsPowerShell\Modules',
+    
+    [Parameter(Mandatory)]
+    [string[]]$ComputerName
 )
 
 # open new session to remote machine
