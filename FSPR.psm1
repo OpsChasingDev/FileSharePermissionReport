@@ -165,6 +165,8 @@ function FSPR_ShareInfoAdvanced {
     BEGIN {}
 
     PROCESS {
+        $Permission = @()
+        <# logic for getting all permissions info goes here#>
         $obj = [PSCustomObject]@{
             PSTypeName = 'FSPR.ObjShareInfoAdvanced'
             ComputerName = $env:COMPUTERNAME
