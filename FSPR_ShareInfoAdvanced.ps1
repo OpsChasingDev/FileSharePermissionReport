@@ -19,7 +19,9 @@ function FSPR_ShareInfoAdvanced {
     BEGIN {}
 
     PROCESS {
-    
+    <# for each pipeline input, find matches
+    with other param info and make new object
+    for each one #>
     }
 
     END {}
