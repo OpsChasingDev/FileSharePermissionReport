@@ -1,4 +1,4 @@
-function FSPR_NTFSInfoACL {
+function FSPR_ShareInfoAdvanced {
     [OutputType('FSPR.ObjShareInfoAdvanced')]
     [CmdletBinding()]
     param (
