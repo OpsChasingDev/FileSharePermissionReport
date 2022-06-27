@@ -5,7 +5,15 @@ function FSPR_ShareInfoAdvanced {
         [Parameter(ValueFromPipeline,
             Mandatory)]
         [ValidateScript({ $_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic' })]
-        [System.Object]$ShareInfo
+        [System.Object]$ShareInfo,
+
+        [Parameter(Mandatory)]
+        [ValidateScript({ $_.PSObject.TypeNames -eq 'FSPR.ObjSMBInfoACL' })]
+        [System.Object]$SMBInfoACL,
+
+        [Parameter(Mandatory)]
+        [ValidateScript({ $_.PSObject.TypeNames -eq 'FSPR.ObjNTFSInfoACL' })]
+        [System.Object]$NTFSInfoACL
     )
 
     BEGIN {}
