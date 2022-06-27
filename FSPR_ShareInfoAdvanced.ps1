@@ -19,9 +19,14 @@ function FSPR_ShareInfoAdvanced {
     BEGIN {}
 
     PROCESS {
-    <# for each pipeline input, find matches
-    with other param info and make new object
-    for each one #>
+        $obj = [PSCustomObject]@{
+            PSTypeName = 'FSPR.ObjShareInfoAdvanced'
+            ComputerName = $env:COMPUTERNAME
+            ShareName = $_.ShareName
+            LocalPath = $_.LocalPath
+            Permission = $Permission
+        }
+        Write-Output $obj
     }
 
     END {}
