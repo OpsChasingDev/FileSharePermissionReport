@@ -76,18 +76,18 @@ function FSPR_SMBInfoACL {
         [Parameter(ValueFromPipeline,
             Mandatory)]
         [ValidateScript({ $_.PSObject.TypeNames -eq 'FSPR.ObjShareInfoBasic' })]
-        [System.Object]$ShareInfo
+        [System.Object]$SMBInfo
     )
 
     BEGIN {}
 
     PROCESS {
-        $SMBACL = Get-SmbShareAccess -Name $ShareInfo.ShareName
+        $SMBACL = Get-SmbShareAccess -Name $SMBInfo.ShareName
         foreach ($acl in $SMBACL) {
             $obj = [PSCustomObject]@{
                 PSTypeName        = "FSPR.ObjSMBInfoACL"
-                ShareName         = $ShareInfo.Sharename
-                ShareLocalPath    = $ShareInfo.LocalPath
+                ShareName         = $SMBInfo.Sharename
+                ShareLocalPath    = $SMBInfo.LocalPath
                 AccountName       = $acl.AccountName
                 AccessControlType = $acl.AccessControlType
                 AccessRight       = $acl.AccessRight
