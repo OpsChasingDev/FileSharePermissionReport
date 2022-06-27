@@ -29,8 +29,13 @@ foreach ($c in $ComputerName) {
 
     # execute script logic on remote machine
     Invoke-Command -Session $Session {
-        FSPR_ShareInfoBasic | FSPR_SMBInfoACL
-        FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
+        $SMBInfoACL = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+        $NTFSInfoACL = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
+        $ShareInfoAdvancedSplat = @{
+            SMBInfoACL = $SMBInfoACL
+            NTFSInfoACL = $NTFSInfoACL
+        }
+        FSPR_ShareInfoBasic | FSPR_ShareInfoAdvanced @ShareInfoAdvancedSplat
     }
 
     # clean up and remove script files on remote machines
