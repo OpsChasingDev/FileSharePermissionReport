@@ -167,16 +167,19 @@ function FSPR_ShareInfoAdvanced {
     PROCESS {
         $Permission = @()
         <# logic for getting all permissions info goes here#>
-        $SMBInfoACL | ForEach-Object {
+        <# $SMBInfoACL | ForEach-Object {
             if ($SMBInfoACL.ShareName -match $ShareInfo.ShareName) {
                 $Permission += $_
             }
         }
+        #>
+        <#
         $NTFSInfoACL | ForEach-Object {
             if ($NTFSInfoACL.ShareName -match $ShareInfo.ShareName) {
                 $Permission += $_
             }
         }
+        #>
         $obj = [PSCustomObject]@{
             PSTypeName = 'FSPR.ObjShareInfoAdvanced'
             ComputerName = $env:COMPUTERNAME
