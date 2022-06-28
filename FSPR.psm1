@@ -165,28 +165,24 @@ function FSPR_ShareInfoAdvanced {
     BEGIN {}
 
     PROCESS {
-        $Permission = @()
-        <# logic for getting all permissions info goes here#>
-        <# $SMBInfoACL | ForEach-Object {
-            if ($SMBInfoACL.ShareName -match $ShareInfo.ShareName) {
-                $Permission += $_
-            }
-        }
-        #>
-        <#
-        $NTFSInfoACL | ForEach-Object {
-            if ($NTFSInfoACL.ShareName -match $ShareInfo.ShareName) {
-                $Permission += $_
-            }
-        }
-        #>
+        $SMB_Collection = @()
         $obj = [PSCustomObject]@{
             PSTypeName = 'FSPR.ObjShareInfoAdvanced'
             ComputerName = $env:COMPUTERNAME
             ShareName = $_.ShareName
             LocalPath = $_.LocalPath
-            Permission = $Permission
         }
+        foreach ($SMB in $SMBInfoACL) {
+            if ($SMB.ShareLocalPath -eq $_.LocalPath) {
+                $SMB_obj = [PSCustomObject]@{
+                    AccountName = $SMB.AccountName
+                    AccessControlType = $SMB.AccessControlType
+                    AccessRight = $SMB.AccessRight
+                }
+            $SMB_Collection += $SMB_obj
+            }
+        }
+        $obj | Add-Member -Name "SMB" -MemberType NoteProperty -Value $SMB_Collection
         Write-Output $obj
     }
 
