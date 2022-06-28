@@ -12,7 +12,8 @@ foreach ($Share in $ShareCollection) {
         $SMB_Collection += $SMBobj
         }
     }
-    # add the $SMB_Collection value as a member of the $Share psobject
+    $Share | Add-Member -Name "SMB" -Value $SMB_Collection
+    Write-Output $Share
 }
 
 <#
