@@ -3,5 +3,6 @@
   - verify no duplication exists
   - verify no extra or un-needed information is gathered
   - verify no sessions are left open upon complete execution
-  - test in scale and measure output times
-  - write CBH
+  - measure output times
+- write CBH
+- support multiple invoke
