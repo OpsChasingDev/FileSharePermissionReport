@@ -166,6 +166,7 @@ function FSPR_ShareInfoAdvanced {
 
     PROCESS {
         $SMB_Collection = @()
+        $NTFS_Collection = @()
         $obj = [PSCustomObject]@{
             PSTypeName = 'FSPR.ObjShareInfoAdvanced'
             ComputerName = $env:COMPUTERNAME
@@ -180,6 +181,16 @@ function FSPR_ShareInfoAdvanced {
                     AccessRight = $SMB.AccessRight
                 }
             $SMB_Collection += $SMB_obj
+            }
+        }
+        foreach ($NTFS in $NTFSInfoACL) {
+            if ($NTFS.ShareLocalPath -eq $_.LocalPath) {
+                $NTFS_obj = [PSCustomObject]@{
+                    AccountName = $NTFS.AccountName
+                    AccessControlType = $NTFS.AccessControlType
+                    AccessRight = $NTFS.AccessRight
+                }
+            $NTFS_Collection += $NTFS_obj
             }
         }
         $obj | Add-Member -Name "SMB" -MemberType NoteProperty -Value $SMB_Collection
