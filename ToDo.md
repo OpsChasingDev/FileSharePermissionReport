@@ -1,1 +1,7 @@
-- repeat SMB structure in FSPR_ShareInfoAdvanced for NTFS information
+- test output based on different conditions
+  - identify what ACLs produce what kind of output
+  - verify no duplication exists
+  - verify no extra or un-needed information is gathered
+  - verify no sessions are left open upon complete execution
+  - test in scale and measure output times
+  - write CBH
