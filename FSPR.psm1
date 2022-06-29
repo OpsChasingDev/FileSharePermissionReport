@@ -165,6 +165,7 @@ function FSPR_ShareInfoAdvanced {
     BEGIN {}
 
     PROCESS {
+        # object and array creations
         $SMB_Collection = @()
         $NTFS_Collection = @()
         $obj = [PSCustomObject]@{
@@ -173,6 +174,8 @@ function FSPR_ShareInfoAdvanced {
             ShareName = $_.ShareName
             LocalPath = $_.LocalPath
         }
+        
+        # adding SMB ACLs to the respective array
         foreach ($SMB in $SMBInfoACL) {
             if ($SMB.ShareLocalPath -eq $_.LocalPath) {
                 $SMB_obj = [PSCustomObject]@{
@@ -183,6 +186,8 @@ function FSPR_ShareInfoAdvanced {
             $SMB_Collection += $SMB_obj
             }
         }
+        
+        # adding NTFS ACLs to the respective array
         foreach ($NTFS in $NTFSInfoACL) {
             if ($NTFS.ShareLocalPath -eq $_.LocalPath) {
                 $NTFS_obj = [PSCustomObject]@{
@@ -193,6 +198,8 @@ function FSPR_ShareInfoAdvanced {
             $NTFS_Collection += $NTFS_obj
             }
         }
+
+        # add each ACL array as a value to its own member of the output object
         $obj | Add-Member -Name "SMB" -MemberType NoteProperty -Value $SMB_Collection
         $obj | Add-Member -Name "NTFS" -MemberType NoteProperty -Value $NTFS_Collection
         Write-Output $obj
