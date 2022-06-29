@@ -194,6 +194,7 @@ function FSPR_ShareInfoAdvanced {
             }
         }
         $obj | Add-Member -Name "SMB" -MemberType NoteProperty -Value $SMB_Collection
+        $obj | Add-Member -Name "NTFS" -MemberType NoteProperty -Value $NTFS_Collection
         Write-Output $obj
     }
 
