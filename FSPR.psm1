@@ -110,7 +110,7 @@ function FSPR_NTFSInfoACL {
     .LINK
         https://github.com/OpsChasingDev/FileSharePermissionReport
     .OUTPUTS
-        FSPR.ObjSMBInfoACL
+        FSPR.ObjNTFSInfoACL
     .EXAMPLE
         PS C:\> FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
 
@@ -145,6 +145,44 @@ function FSPR_NTFSInfoACL {
 }
 
 function FSPR_ShareInfoAdvanced {
+    <#
+    .SYNOPSIS
+        Consolidates SMB and NTFS permissions for non-system shares in a single object.
+    .DESCRIPTION
+        Consolidates SMB and NTFS permissions for non-system shares in a single object.
+
+        The purpose of this function is for use in the FilesharePermissionReport whereby the output information of FSPR_NTFSInfoACL and FSPR_SMBInfoACL are called in this function via a constructor in order to combine both types of permissions information.
+    .LINK
+        https://github.com/OpsChasingDev/FileSharePermissionReport
+    .OUTPUTS
+        FSPR.ObjShareInfoAdvanced
+    .EXAMPLE
+        Invoke-Command -Session $Session {
+        $SMBInfoACL = FSPR_ShareInfoBasic | FSPR_SMBInfoACL
+        $NTFSInfoACL = FSPR_ShareInfoBasic | FSPR_NTFSInfoACL
+        $ShareInfoAdvancedSplat = @{
+            SMBInfoACL = $SMBInfoACL
+            NTFSInfoACL = $NTFSInfoACL
+        }
+        FSPR_ShareInfoBasic | FSPR_ShareInfoAdvanced @ShareInfoAdvancedSplat
+    }
+
+        Output:
+
+        Extracted from an example constructor.  Creates a remote session to a computer that will return one object per non-system share on the computer.  Each object will have an SMB member and an NTFS member, both of which are a collection of the respective permissions information for that share.  The below is an example of such an output:
+
+        ComputerName   : SL-DC-01
+ShareName      : TestShares
+LocalPath      : D:\TestShares
+SMB            : {@{AccountName=Everyone; AccessControlType=Allow; AccessRight=Full}}
+NTFS           : {@{AccountName=BUILTIN\Administrators; AccessControlType=Allow;
+                 AccessRight=FullControl}, @{AccountName=SAVYLABS\User-008; AccessControlType=Allow;
+                 AccessRight=FullControl}, @{AccountName=BUILTIN\Administrators;
+                 AccessControlType=Allow; AccessRight=FullControl}, @{AccountName=NT AUTHORITY\SYSTEM;
+                 AccessControlType=Allow; AccessRight=FullControl}…}
+PSComputerName : sl-dc-01
+RunspaceId     : 858bd868-91e1-4d7a-a6d8-d99dd245414e
+    #>
     [OutputType('FSPR.ObjShareInfoAdvanced')]
     [CmdletBinding()]
     param (
