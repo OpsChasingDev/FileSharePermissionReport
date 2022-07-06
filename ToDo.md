@@ -1,1 +1,2 @@
-- write CBH
+- design next part of the script in pseudo-code
+- objective should be to take desired users as input and address what their permissions will look like to each share
