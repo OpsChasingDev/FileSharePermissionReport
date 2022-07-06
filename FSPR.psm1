@@ -60,7 +60,7 @@ function FSPR_SMBInfoACL {
     .DESCRIPTION
         Gets share permissions information about non-system SMB Shares on a system.
 
-        The purpose of this fucntion is for use in the FilesharePermissionReport whereby the input used for this function is the output generated from the FSPR_ShareInfoBasic function.
+        The purpose of this function is for use in the FilesharePermissionReport whereby the input used for this function is the output generated from the FSPR_ShareInfoBasic function.
     .LINK
         https://github.com/OpsChasingDev/FileSharePermissionReport
     .OUTPUTS
